@@ -1,0 +1,9 @@
+﻿@use '@/style/bootstrap/bootstrap';
+
+.main-content {
+  @include bootstrap.combine-classes('d-flex', 'flex-column', 'min-vh-100');
+
+  main {
+    @extend .flex-grow-1;
+  }
+}

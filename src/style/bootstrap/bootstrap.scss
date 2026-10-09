@@ -1,0 +1,77 @@
+﻿@forward 'bootstrap-loader';
+
+@use 'sass:list';
+@use 'sass:math';
+@use 'sass:meta';
+@use 'sass:string';
+
+@function validate-index($name, $index, $value) {
+  @if meta.type-of($index) != 'number' {
+    @error '❌  ===> #{$index} is not a number: #{$name}';
+  }
+
+  $is-list: meta.type-of($value) != 'string';
+
+  @if $is-list and $index == 0 {
+    @error '❌  ===> List index may not be 0: #{$name}';
+  }
+  $length: if($is-list, list.length($value), string.length($value));
+  $negative-transform: $index + $length + 1;
+
+  @if $index < 1 and ($negative-transform >= 1 and $negative-transform <= $length) {
+    $index: $negative-transform;
+  }
+  @if $is-list and ($index < 0 or $index > $length) {
+    @error '❌  ===> Invalid index #{$index} for a list with #{$length} elements: #{$name}';
+  }
+
+  @return $index;
+}
+
+@function index($string, $substring, $start-at: 1) {
+  @if meta.type-of($string) != string {
+    @error '❌  ===> #{$string} is not a string';
+  }
+
+  @if meta.type-of($substring) != string {
+    @error '❌  ===> #{$substring} is not a string';
+  }
+
+  $start-at: validate-index('index', $start-at, $string);
+  $length: string.length($string);
+
+  @if $start-at < $length * -1 {
+    $start-at: 1;
+  }
+  $index: string.index(string.slice($string, $start-at), $substring);
+
+  @if $index {
+    @return $index + math.min($start-at, $length) - 1;
+  } @else {
+    @return 0;
+  }
+}
+
+@function starts-with($string, $substring, $start-at: 1) {
+  @if meta.type-of($string) != string {
+    @error '❌  ===> #{$string} is not a string';
+  }
+
+  @if meta.type-of($substring) != string {
+    @error '❌  ===> #{$substring} is not a string';
+  }
+
+  $start-at: validate-index('starts-with', $start-at, $string);
+  @return index($string, $substring, $start-at) == $start-at;
+}
+
+@mixin combine-classes($classes...) {
+  @for $i from 0 to length($classes) {
+    $className: #{nth($classes, $i + 1)};
+
+    @if not (starts-with($className, '.')) {
+      $className: '.' + #{$className};
+    }
+    @extend #{$className};
+  }
+}

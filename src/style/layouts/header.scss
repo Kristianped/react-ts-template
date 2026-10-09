@@ -1,0 +1,10 @@
+﻿@use '@/style/bootstrap/bootstrap';
+
+.header {
+  @include bootstrap.combine-classes('p-2', 'text-center', 'border-bottom', 'border-secondary');
+
+  img {
+    height: 40px;
+    vertical-align: top;
+  }
+}

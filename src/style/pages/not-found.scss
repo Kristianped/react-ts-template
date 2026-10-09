@@ -1,0 +1,51 @@
+﻿@use '@/style/bootstrap/bootstrap';
+@use '@/style/bootstrap/bootstrap-icons';
+
+.error-page {
+  @include bootstrap.combine-classes('d-flex', 'align-items-center', 'justify-content-center');
+}
+
+.error-container {
+  @include bootstrap.combine-classes('container', 'py-5', 'px-3', 'text-center');
+}
+
+.error-code {
+  @extend .display-1;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.error-details {
+  @extend .lead;
+  @extend .mb-4;
+}
+
+.error-actions {
+  @include bootstrap.combine-classes(
+    'd-flex',
+    'flex-wrap',
+    'gap-2',
+    'justify-content-center',
+    'my-3'
+  );
+
+  .error-btn {
+    @include bootstrap.combine-classes('.btn', '.btn-outline-primary', 'mx-3', 'mb-3');
+    width: 240px;
+
+    i {
+      @extend .me-2;
+    }
+  }
+}

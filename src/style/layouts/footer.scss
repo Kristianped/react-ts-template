@@ -1,0 +1,13 @@
+﻿@use '@/style/bootstrap/bootstrap';
+
+.footer {
+  @include bootstrap.combine-classes(
+    'border-top',
+    'border-secondary-subtle',
+    'text-center',
+    'text-muted',
+    'mt-auto',
+    'py-2',
+    'w-100'
+  );
+}
