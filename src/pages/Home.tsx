@@ -1,11 +1,11 @@
-﻿import '@/style/global.scss';
-import '@/style/icons.scss';
+﻿import { FaTools } from '@react-icons/fontawesome5';
 
 const Home = () => {
   return (
     <div>
       <h3>
-        <i className='bi bi-tools me-2'>Hello World!</i>
+        <FaTools style={{ marginInlineEnd: '1rem' }} />
+        Hello World
       </h3>
     </div>
   );

@@ -1,0 +1,48 @@
+﻿.errorPage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.errorContainer {
+  text-align: center;
+  padding-block: 1rem;
+  padding-inline: 0.75rem;
+}
+
+.errorCode {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.errorActions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-inline: 1rem;
+
+  .errorBtn {
+    width: 240px;
+    margin-block: 1rem;
+    margin-inline-end: 1rem;
+
+    svg {
+      display: block;
+      height: 100%;
+      width: auto;
+      margin-inline-end: 0.25rem;
+    }
+  }
+}

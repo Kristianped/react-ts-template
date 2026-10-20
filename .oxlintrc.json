@@ -10,6 +10,19 @@
     "browser": true
   },
   "rules": {
+    "no-restricted-imports": [
+      "error",
+      {
+        "patterns": [],
+        "paths": [
+          {
+            "name": "react-redux",
+            "importNames": ["useSelector", "useStore", "useDispatch"],
+            "message": "Please use pre-typed versions from 'src/store/hooks' instead"
+          }
+        ]
+      }
+    ],
     "react/rules-of-hooks": "error",
     "react/only-export-components": [
       "warn",

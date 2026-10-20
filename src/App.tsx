@@ -2,7 +2,7 @@ import { RouterProvider } from 'react-router';
 
 import createRouter from '@/routes/Router.tsx';
 
-const header = 'Hello React';
+const header = 'Home';
 const footer = 'Built with ❤️ and React';
 const router = createRouter({ header, footer });
 

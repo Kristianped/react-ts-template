@@ -1,12 +1,13 @@
 ﻿import { createBrowserRouter } from 'react-router';
 
-import MainLayout from '@/layouts/MainLayout.tsx';
-import Contact from '@/pages/Contact.tsx';
-import Home from '@/pages/Home.tsx';
-import NotFound from '@/pages/NotFound.tsx';
+import MainLayout from '@/layouts/mainLayout/MainLayout';
+import Contact from '@/pages/Contact';
+import Counter from '@/pages/counter/Counter';
+import Home from '@/pages/Home';
+import NotFound from '@/pages/notFound/NotFound';
 
 type RouterProps = {
-  header: string;
+  header?: string;
   footer: string;
 };
 
@@ -25,6 +26,10 @@ const createRouter = ({ header, footer }: RouterProps) => {
         {
           path: 'contact',
           Component: Contact,
+        },
+        {
+          path: 'counter',
+          Component: Counter,
         },
         {
           path: '*',

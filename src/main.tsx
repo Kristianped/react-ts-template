@@ -1,8 +1,14 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
+import { Provider } from 'react-redux';
 
 import App from '@/App.tsx';
-import { Provider } from 'react-redux';
+// @ts-ignore
+// oxlint-disable-next-line
+import * as bootstrap from '@/bootstrap/bootstrap-loader.js';
+
+import './main.css';
+
 import { store } from '@/store/store.ts';
 
 const rootContainer = document.getElementById('root');

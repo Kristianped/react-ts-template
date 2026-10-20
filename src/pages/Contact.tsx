@@ -1,27 +1,37 @@
-﻿import '@/style/global.scss';
-import '@/style/icons.scss';
+﻿import {
+  BsEnvelope,
+  BsGeoAlt,
+  BsInfoCircle,
+  BsPhone,
+  BsTelephoneFill,
+} from '@react-icons/bootstrap-icons';
 
 const Contact = () => {
   return (
-    <div className='container py-4'>
-      <h1 className='text-center mb-4 text-success'>
-        <i className='bi bi-telephone-fill me-2'></i>Contact
+    <div className='container py-6'>
+      <h1 className='fg-success text-center mb-5'>
+        <BsTelephoneFill className='me-4' />
+        Contact
       </h1>
-      <div className='border rounded shadow p-4'>
+      <div className='border rounded shadow p-6'>
         <p>Get in touch with us!</p>
-        <div className='card mt-4'>
+        <div className='card mt-6'>
           <div className='card-body'>
             <h3 className='card-title'>
-              <i className='bi bi-info-circle me-2'></i>Contact Information
+              <BsInfoCircle className='me-4' />
+              Contact Information
             </h3>
             <p>
-              <i className='bi bi-envelope me-2'></i>Email: contact@demo.com
+              <BsEnvelope className='me-4' />
+              Email: contact@demo.com
             </p>
             <p>
-              <i className='bi bi-phone me-2'></i>Phone: (555) 123-4567
+              <BsPhone className='me-4' />
+              Phone: (555) 123-4567
             </p>
             <p>
-              <i className='bi bi-geo-alt me-2'></i>Address: 123 Demo Street, Example City
+              <BsGeoAlt className='me-4' />
+              Address: 123 Demo Street, Example City
             </p>
           </div>
         </div>

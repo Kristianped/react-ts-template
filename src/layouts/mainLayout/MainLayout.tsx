@@ -1,18 +1,18 @@
 ﻿import { Outlet } from 'react-router';
 
-import Footer from '@/layouts/Footer.tsx';
-import Header from '@/layouts/Header.tsx';
+import Footer from '@/layouts/footer/Footer';
+import Header from '@/layouts/header/Header';
 
-import '@/style/layouts/main-layout.scss';
+import './mainLayout.css';
 
 type MainLayoutProps = {
-  header: string;
+  header?: string;
   footer: string;
 };
 
 const MainLayout = ({ header, footer }: MainLayoutProps) => {
   return (
-    <div className='main-content'>
+    <div className='mainContent'>
       <Header title={header} />
       <main>
         <Outlet />
